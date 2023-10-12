@@ -1,0 +1,1 @@
+web: gunicorn CROWN_JEWELS.wsgi
