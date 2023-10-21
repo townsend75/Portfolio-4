@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserDetails, Reviews
+from .models import Person, Reviews
 from django_summernote.admin import SummernoteModelAdmin
 from .forms import BookingForm
 
@@ -11,7 +11,7 @@ class ReviewsAdmin(SummernoteModelAdmin):
     summernote_fields = ("body")
 
 
-@admin.register(UserDetails)
+@admin.register(Person)
 class BookingAdmin(admin.ModelAdmin):
     fields = ('name', 'email', 'guests', 'date', 'time')
     actions = ['confirm_booking']

@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from datetime import datetime
-from .models import UserDetails
+from .models import Person
 
 
 TIME_CHOICES = (
@@ -19,5 +19,5 @@ TIME_CHOICES = (
 
 class BookingForm(ModelForm):
     class Meta:
-        model = UserDetails
+        model = Person
         fields = { 'name', 'email', 'guests', 'date', 'time'}

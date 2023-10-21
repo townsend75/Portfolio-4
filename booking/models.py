@@ -4,7 +4,8 @@ from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 
-STATUS = ( (0, "Unconfirmed"), (1, "Confirmed"))
+
+STATUS = ((0, "Unconfirmed"), (1, "Confirmed"))
 
 TIME_CHOICES = (
     ('17:00', '17:00'),
@@ -19,17 +20,24 @@ TIME_CHOICES = (
 )
 
 
-class UserDetails(models.Model):
+
+
+class Person(models.Model):
     name = models.CharField(max_length=80, help_text='Please enter your full name')
     email = models.EmailField(help_text='Please provide a valid email address in case we need to contact you')
     guests = models.IntegerField(default=0, help_text='Please enter the number of guests in your party')
     date = models.DateField(default=datetime.now, help_text='Please select a date using DD-MM-YY')
     time = models.CharField(max_length=5, default=datetime.now, choices=TIME_CHOICES, help_text="Please select a time")
     status = models.IntegerField(choices=STATUS, default=0)
-    confirmed = models.BooleanField(default=False)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservations")
+    
+
+
+    class Meta:
+        ordering = ["date"]
 
     def __str__(self):
-        return self.name
+        return f"{self.date} at {self.time} for {self.guests} people"
 
 
 class Reviews(models.Model):

@@ -6,5 +6,6 @@ from booking import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('reserve', views.reserve, name='reserve')
+    path('reserve', views.reserve, name='reserve'), 
+    path('reservation', views.reservation, name='get')
 ]

@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+# Admin header customization
+
+admin.site.site_header = "The Crown Jewels"
+admin.site.site_title = "The Crown Jewels Dashboard"
+admin.site.site_index = "Welcome to your dashboard"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.views import generic, View
-from .models import Reviews, UserDetails
+from .models import Reviews, Person
 from django.views.generic.edit import CreateView
 from .forms import BookingForm
 from django.http import HttpResponseRedirect
@@ -53,7 +53,7 @@ def reserve(request):
         date = request.POST['date']
         time = request.POST['time']
         # print(name, email, guests, date, time)
-        ins = UserDetails(name=name, email=email, guests=guests, date=date, time=time)
+        ins = Person(name=name, email=email, guests=guests, date=date, time=time)
         ins.save()
         print("The data is now on the database")
 
@@ -63,3 +63,22 @@ def reserve(request):
 def home(request):
     return render(request, 'home.html')  
 
+
+class reservation(View):
+
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Person.objects.filter(status=1)
+        reservation = get_object_or_404(queryset, slug=slug)
+        
+
+        return render(
+            request,
+            "seebooking.html",
+            {
+                "name": name,
+                "email": email,
+                "guests": guests,
+                "date": date,
+                "time": time
+            },
+        )
