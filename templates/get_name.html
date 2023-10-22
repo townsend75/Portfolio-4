@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
    <h2 class= "text-center my-3"> Book your table here</h2>
-   <form action="{% url 'reserve' %}" method="post">
+   <form action ="{% url 'get_name' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             <label for="name">Name</label>

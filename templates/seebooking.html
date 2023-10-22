@@ -3,6 +3,12 @@
 {% block content %}
 
 <div class="container-fluid">
+    <h1> Welcome!!!!!!!!!!</h1>
+
+    {% for booking in reservations %}
+        <p>time: {{ booking.time }}</p>
+        <p>date: {{ booking.date }}</p>
+    {% endfor %}
     
 </div>
 {%endblock%}

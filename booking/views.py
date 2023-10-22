@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, HttpResponse
 from django.views import generic, View
-from .models import Reviews, Person
+from .models import Reviews, UserDetails
 from django.views.generic.edit import CreateView
 from .forms import BookingForm
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 
@@ -19,12 +21,20 @@ from django.http import HttpResponseRedirect
 #     form_class = BookingForm
 #     success_url = '/home/'
 
+# # add to your view
+def get_name(request):
+    
+    form = BookingForm()
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
 
-# # add to your views
-# def Booking(request):
-#     form = BookingForm()
-#     args = {}
-#     if request.method == 'POST':
+    if form.is_valid():
+        return HttpResponseRedirect('/thanks/')
+
+    else:
+        form = BookingForm()    
+
+    return render(request, "get_name.html", {"form": form})
 #         print("Up your arse")
 #         form = BookingForm(request.POST or None)
 #         if form.is_valid():
@@ -53,9 +63,12 @@ def reserve(request):
         date = request.POST['date']
         time = request.POST['time']
         # print(name, email, guests, date, time)
-        ins = Person(name=name, email=email, guests=guests, date=date, time=time)
-        ins.save()
-        print("The data is now on the database")
+        customer = User.objects.get(id=request.user.id)
+        booking = UserDetails(name=name, email=email, guests=guests, date=date, time=time, customer=customer)
+        booking.save()
+
+        messages.success(request, 'Form submission successful')
+       
 
     return render(request, 'reserve.html')
 
@@ -64,21 +77,15 @@ def home(request):
     return render(request, 'home.html')  
 
 
-class reservation(View):
+class Reservation(View):
 
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Person.objects.filter(status=1)
-        reservation = get_object_or_404(queryset, slug=slug)
+    def get(self, request, *args, **kwargs):
+        queryset = UserDetails.objects.filter(customer__id=request.user.id)
         
-
         return render(
             request,
             "seebooking.html",
             {
-                "name": name,
-                "email": email,
-                "guests": guests,
-                "date": date,
-                "time": time
+                "reservations": queryset
             },
         )

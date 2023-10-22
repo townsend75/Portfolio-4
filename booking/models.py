@@ -22,7 +22,7 @@ TIME_CHOICES = (
 
 
 
-class Person(models.Model):
+class UserDetails(models.Model):
     name = models.CharField(max_length=80, help_text='Please enter your full name')
     email = models.EmailField(help_text='Please provide a valid email address in case we need to contact you')
     guests = models.IntegerField(default=0, help_text='Please enter the number of guests in your party')
