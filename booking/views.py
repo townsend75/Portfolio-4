@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponse
+from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from django.views import generic, View
 from .models import Reviews, UserDetails
 from django.views.generic.edit import CreateView
@@ -29,7 +29,7 @@ def get_name(request):
         form = BookingForm(request.POST)
 
     if form.is_valid():
-        return HttpResponseRedirect('/thanks/')
+        return render(request, 'seebooking.html')
 
     else:
         form = BookingForm()    
@@ -69,8 +69,8 @@ def reserve(request):
 
         messages.success(request, 'Form submission successful')
        
-
     return render(request, 'reserve.html')
+    messages.success(request, 'Form submission successful')
 
 
 def home(request):
@@ -82,10 +82,31 @@ class Reservation(View):
     def get(self, request, *args, **kwargs):
         queryset = UserDetails.objects.filter(customer__id=request.user.id)
         
-        return render(
-            request,
-            "seebooking.html",
-            {
-                "reservations": queryset
-            },
+        return render(request, 'seebooking.html',
+        {"reservations": queryset},
         )
+
+    
+def delete(request, id):
+    booking = UserDetails.objects.get(id=id)
+    booking.delete()
+    return redirect("/")
+    
+
+def update(request, id):
+    booking = UserDetails.objects.get(id=id)  
+    return render(request, "update.html")
+
+
+def upwrite(request, id):
+    w = request.POST['name']
+    x = request.POST['guests']
+    y = request.POST['date']
+    z = request.POST['time']
+    booking = UserDetails.objects.get(id=id)
+    booking.name = w
+    booking.guestse = x
+    booking.date = y
+    booking.time = z
+    booking.save()
+    return redirect("/")    

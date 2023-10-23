@@ -5,6 +5,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 
 
+
 STATUS = ((0, "Unconfirmed"), (1, "Confirmed"))
 
 TIME_CHOICES = (
@@ -31,7 +32,7 @@ class UserDetails(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservations")
     
-
+    
 
     class Meta:
         ordering = ["date"]

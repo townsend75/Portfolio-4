@@ -2,13 +2,37 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <h1> Welcome!!!!!!!!!!</h1>
+<div class="container">
+    <h1> Manage your bookings</h1>
 
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>No. of Guests</th>
+        <th>Date</th>
+        <th>Time</th>
+    </thead>
     {% for booking in reservations %}
-        <p>time: {{ booking.time }}</p>
-        <p>date: {{ booking.date }}</p>
+    <tr>
+        <td> {{booking.id }}</td>
+        <td> {{ booking.name }} </td>
+        <td> {{ booking.guests }} </td>
+        <td> {{ booking.date }} </td>
+        <td> {{ booking.time }} </td>
+    </tr>
+        <br>
+    <td>
+        <a href="update/{{booking.id}}"><button class="btn btn-warning" id="update">Update</button></a>
+    </td>
+    <td>
+        <a href="delete/{{booking.id}}"><button class="btn btn-danger" id="delete">Delete</button></a>
+    </td>
+       
+
     {% endfor %}
+
+</table>
     
 </div>
 {%endblock%}
