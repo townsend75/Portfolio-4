@@ -95,7 +95,7 @@ def delete(request, id):
 
 def update(request, id):
     booking = UserDetails.objects.get(id=id)  
-    return render(request, "update.html")
+    return render(request, "update.html", {'booking': booking})
 
 
 def upwrite(request, id):
@@ -105,8 +105,8 @@ def upwrite(request, id):
     z = request.POST['time']
     booking = UserDetails.objects.get(id=id)
     booking.name = w
-    booking.guestse = x
+    booking.guests = x
     booking.date = y
     booking.time = z
     booking.save()
-    return redirect("/")    
+    return redirect("/reservation")    

@@ -10,8 +10,8 @@ urlpatterns = [
     path('reserve/', views.reserve, name='reserve'),
     path('get_name/', views.get_name, name='get_name'),
     path('reservation/delete/<int:id>/', views.delete, name='delete'),
-    # path('reservation/update/<int:id>/', views.update, name='update'),
-    path('reservation/update/upwrite<int:id>/', views.upwrite, name='upwrite'),
+    path('reservation/update/<int:id>/', views.update, name='update'),
+    path('reservation/update/upwrite/<int:id>/', views.upwrite, name='upwrite')
     
 
    
