@@ -7,9 +7,11 @@ from .forms import BookingForm
 @admin.register(Reviews)
 class ReviewsAdmin(SummernoteModelAdmin):
 
-    search_fields = ('name', 'email', 'body')
+    search_fields = ('post', 'name', 'email', 'body')
     summernote_fields = ("body")
 
+    def send_review(self, request, queryset):
+        queryset.update()
 
 @admin.register(UserDetails)
 class BookingAdmin(admin.ModelAdmin):

@@ -8,10 +8,12 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('reservation/', views.Reservation.as_view(), name='get'),
     path('reserve/', views.reserve, name='reserve'),
-    path('get_name/', views.get_name, name='get_name'),
     path('reservation/delete/<int:id>/', views.delete, name='delete'),
     path('reservation/update/<int:id>/', views.update, name='update'),
-    path('reservation/update/upwrite/<int:id>/', views.upwrite, name='upwrite')
+    path('reservation/update/upwrite/<int:id>/', views.upwrite, name='upwrite'), 
+    path('reviews/', views.review, name='reviews'),
+    path('reviews/rev_write/', views.rev_write, name='rev_write'), 
+    
     
 
    

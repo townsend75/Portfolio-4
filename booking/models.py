@@ -26,14 +26,14 @@ class UserDetails(models.Model):
     guests = models.IntegerField(default=0, help_text='Please enter the number of guests in your party')
     date = models.DateField(default=datetime.now, help_text='Please select a date using DD-MM-YY')
     time = models.CharField(max_length=5, default=datetime.now, choices=TIME_CHOICES, help_text="Please select a time")
-    status = models.IntegerField(choices=STATUS, default=0)
     customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservations")
+   
     
     class Meta:
         ordering = ["date"]
 
     def __str__(self):
-        return f"{self.date} at {self.time} for {self.guests} people"
+        return f"{self.date} | {self.time} | {self.guests} guests | name = {self.name} | contact = {self.email}"
 
 
 class Reviews(models.Model):
@@ -43,17 +43,10 @@ class Reviews(models.Model):
     email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+  
     
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
-
-# class ManageBooking(models.Model):
-#     number_of_tables = models.IntegerField
-#     number_of_guests = models.IntegerField
-#     date = models.DateField(default=datetime.now)
-#     time = models.TimeField(default=datetime.now)
-
-
+        return f"Review {self.body} from {self.name}"
