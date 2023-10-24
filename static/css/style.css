@@ -1,5 +1,5 @@
 body {
-    background-color: #F9FAFC;
+    background-color: #717378;
 }
 
 .brand {
@@ -140,4 +140,16 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+#date {
+    width: 15%
+}
+
+#time {
+    width: 15%
+}
+
+#guests {
+    width: 15%
 }

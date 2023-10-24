@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 
+
 if os.path.isfile("env.py"):
     import env
 
@@ -160,3 +161,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
