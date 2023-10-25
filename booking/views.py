@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from django.views import generic, View
 from .models import Reviews, UserDetails
 from django.views.generic.edit import CreateView
-from .forms import BookingForm
+from .forms import BookingForm, ReviewsForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -86,23 +86,28 @@ def upwrite(request, id):
     booking.time = z
     booking.save()
     messages.success(request, 'Booking updated successfully')
-    return redirect("/reservation")   
+    return redirect("/reservation")  
 
 
-def review(request):
-    comment = Reviews.objects.get
-    return render(request, 'reviews.html', {'comment': comment}) 
+# class ReviewsCreate(CreateView):
+#     model = Reviews
+#     fields = ['post', 'name', 'email', 'body', ]     
 
 
-def rev_write(request):
-    x = request.POST['name']
-    y = request.POST['email']
-    z = request.POST['body']
-    comment = Reviews.objects.get
-    comment.name = x
-    comment.email = y
-    comment.body = z
-    comment.save()
-    messages.success(request, 'Review updated successfully')
-    return redirect("/reviews")  
+# def review(request):
+#     comment = Reviews.objects.get
+#     return render(request, 'reviews.html', {'comment': comment}) 
+
+
+# def rev_write(request):
+#     x = request.POST['name']
+#     y = request.POST['email']
+#     z = request.POST['body']
+#     comment = Reviews.objects.get
+#     comment.name = x
+#     comment.email = y
+#     comment.body = z
+#     comment.save()
+#     messages.success(request, 'Review updated successfully')
+#     return redirect("/reviews")  
 

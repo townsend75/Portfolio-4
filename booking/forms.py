@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from datetime import datetime
 from .models import UserDetails, Reviews
+from django.views.generic.edit import CreateView
 
 
 TIME_CHOICES = (
@@ -23,7 +24,7 @@ class BookingForm(ModelForm):
         fields = { 'name', 'email', 'guests', 'date', 'time'}
 
 
-class ReviewForm(forms.ModelForm):
+class ReviewsForm(forms.ModelForm):
     class Meta:
         model = Reviews
         fields = ('body',)        
