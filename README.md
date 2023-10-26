@@ -1,110 +1,158 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Crown Jewels Booking System
 
-Welcome townsend75 Townsend,
+[The Crown Jewels on Github Pages](https://github.com/townsend75/Portfolio-4)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## About the site
 
-## Gitpod Reminders
+The site is has a simple opening page including a navbar with links depending on whether a user is logged in or not. If the user is logged in, they can book a table in the restaurant, view, edit and delete existing bookings and choose to log out. If the user is not yet registered, they can sign up and then use the features as well. There is also a brief description of the restaurant and links to the usual social media pages in the footer. The design is deliberately very simple, so as to focus on the functionality.. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Website Goals
 
-`python3 -m http.server`
+### Customer Goals
 
-A blue button should appear to click: _Make Public_,
+- To be able to book a table for a specific date and time in the future
 
-Another blue button should appear to click: _Open Browser_.
+- To be able to alter the booking or delete it entirely, should circumstances change
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+### Business Goals
 
-Another blue button should appear to click: _Open Browser_.
+- Better planning capabilities through advance knowledge of bookings on any particular day
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- 
 
-To log into the Heroku toolbelt CLI:
+-
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## User Stories
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### New User
 
-------
+- I want to be able to register as a user
 
-## Release History
+- I want to be able to book a table once I have registered
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Existing Users
 
-**September 20 2023:** Update Python version to 3.9.17.
+- I want to be able to login securely
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- I want to be able to book a table
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+-I want the option of editing or deleting my existing bookings
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- I want the option of following the restaurant on social media
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Site Administrator
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- I want the pages to be easily manageable
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- I need to see all the bookings in one place so that i can better plan my staffing and stock
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- I need to be able to add and delete bookings through the admin site, should bookings be made by telephone or in person
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+_ I would like access to registered users email address so that I can contact them should something be wrong with their booking
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+##Design
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Colour
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The site has a uniform sunny yellow #ece279 background. The header and footer are both dark  with light text for a pleasant contrast.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Font Family
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Roboto and Lato fonts are used throughout the site.
 
-------
 
-## FAQ about the uptime script
+### Images
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### Wireframes
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Features
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Landing Page
 
-**So….?**
+The landing page features a bootstrap carousel of images as well as a navbar and a footer. The navbar initially shows Home, Register and Login buttons. Once the user has registered or logged in, the navbar switches to offer "Logout", "Book a table" and" View my bookings" buttons. 
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Register
+The register page offers new users a chance to register. There is also a prompt for user who are already members, directing them tho the sign in page. Registrees must create a username and a password.
 
-**Can I opt out?**
+### Sign in
+The sign in page asks for username and password. There is also a redirect to the register page, if users are not yet registered.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Book a table
+Contains a form requesting name, email, number of guests, date and time of the booking. An alert tells the user that their booking was submitted successfully.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### View Your Bookings
+Here the user can see all of the bookings they have made in a table. There are also two buttons, one to delete the booking and one to update it.The user is alerted that either of the two actions has been successfully completed. 
 
-**Anything more?**
+### Navbar
+The navbar is present on all pages. Before a user logs in, the options are to register or to sign in. Once a user is signed in, the navbar shows options to logout, book a table or view/edit their bookings.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Footer
+The footer is present on all pages and contains links to the standard social media pages as well a the address of the gastropub.
 
----
 
-Happy coding!
+## Future Considerations
+
+- Given more time, I would devise a table containing the number of tables in the restaurant and could then avoid double bookings for larger parties as well as making it impossible to exceed a maximum customer capacity.
+
+- In a real world scenario, I would add background images of the restaurant on all of the pages, particularly the form pages, which are currently slightly austere.
+
+- A review section would be created, allowing customers to leave comments about their experience.
+
+
+## Languages and resources
+
+- [HTML](https://html.spec.whatwg.org/multipage/) - Markup language which makes up the contents of the site
+- [CSS](https://www.w3.org/TR/css-2022/) - Used to style elements of the site
+- [Bootstrap v5](https://getbootstrap.com)- Open source framework for mobile-first frontend development
+- [Google Fontshttps://fonts.google.com]() - Source for the site's fonts
+- [Github](https://github.com) - Repository for the code
+- [Gitpod](https://www.gitpod.io) - IDE used to write the site code
+- [FontAwesome](https://fontawesome.com/icons) - All icons on the site are from FontAwesome
+
+
+## Testing
+
+For all testing, please refer to the [testing.md](testing.md) file.
+
+
+## Deployment
+
+The site was deployed to GitHub Pages. The steps to deploy are as follows:
+
+- In the [GitHub Repository](https://github.com/townsend75/Portfolio-4), navigate to the Settings tab
+- From the source section drop-down menu, select the Main Branch, then click "Save".
+- The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+## Credits
+
+Here is a list of resources that I have used to create my site. 
+
+| Source | Location | Notes |
+| ----------- | ----------- | ----------- |
+| [Django Documentation](https://docs.djangoproject.com/en/4.2/) | Entire page | MVT research |
+| [Bootstrap v5](https://getbootstrap.com) | entire site | Creating bootstrap forms and tables, centering objects, navbar |
+| [Programming with Harry ](https://www.youtube.com/c/ProgrammingWithHarry) | Django Tutorial | Youtube channel which helped my understanding a django structures |
+| [Stack overflow](https://stackoverflow.com) | Entire site | Very helpful for researching different solutions to many many problems |
+| [Unsplash](https://unsplash.com) | Entire site | Royalty free photo stock. The restaurant images are all taken from here |
+
+
+## Content
+
+- The fonts used on this site are from Google Fonts
+
+- Instructions relating to Github deployment come from Github's docs pages
+
+- Icons in the footer come from Font Awesome
+
+
+## Acknowledgements
+
+- I would like to thank my Code Institute mentor, Sheryl Goldberg for her valuable support
+
+- I would also like to thank the Code Institute tutors who helped me sort out multiple issues

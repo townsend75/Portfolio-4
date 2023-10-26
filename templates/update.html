@@ -4,35 +4,48 @@
 {% block content %}
 <div class="container-fluid">
     <h2 class= "text-center my-3"> Manage Your Booking</h2>
+</div>
+
+<div class="container d-flex justify-content-center">
     <form action ="{% url 'upwrite' booking.id %}" method="post">
          {% csrf_token %}
          <div class="form-group">
              <label for="name">Name</label>
-             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required=True value="{{booking.name}}">
+             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required=True aria-label="name" value="{{booking.name}}">
          </div>
  
          <div class="form-group">
              <label for="email">Email</label>
-             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required=True value="{{booking.email}}">
+             <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required=True aria-label="email" value="{{booking.email}}">
          </div>
  
          <div class="form-group">
              <label for="guests">Number of guests</label>
-             <input type="number" class="form-control" id="guests" name="guests" min="1" max="6" required=True value="{{booking.guests}}">
+             <input type="number" class="form-control" id="guests" name="guests" min="1" max="6" required=True  aria-label="number of guests" value="{{booking.guests}}">
          </div>
  
          <div class="form-group">
              <label for="date">Date</label>
-             <input type="date" class="form-control" id="date" name="date" required=True value="{{booking.date}}">
+             <input type="date" class="form-control" id="date" name="date" required=True aria-label="date" value="{{booking.date}}">
          </div>
  
          <div class="form-group">
              <label for="time">Time</label>
-             <input type="time" class="form-control" id="time" name="time" required=True value="{{booking.time}}">
+             <input type="time" class="form-control" id="time" name="time" required=True aria-label="time" value="{{booking.time}}">
          </div>
  
-         <button type="submit" class="btn btn-success">Submit</button>
+         <button type="submit" class="btn btn-success" aria-label="submit button">Submit</button>
      </form>
+ </div>
+
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col md-8 offset-2">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D">
+            <img srx="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZvb2R8ZW58MHx8MHx8fDA%3D">
+        
+        </div>
+    </div>
  </div>
 
 {%endblock%}
