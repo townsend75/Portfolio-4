@@ -1,6 +1,7 @@
 # The Crown Jewels Booking System
 
-[The Crown Jewels on Github Pages](https://github.com/townsend75/Portfolio-4)
+[View page deployed on heroku here](https://crown-jewels-5cd0c00fe74f.herokuapp.com/)
+[View my github repo here](https://github.com/townsend75/Portfolio-4)
 
 
 ## About the site

@@ -1,17 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container mt-3">
 <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://res-console.cloudinary.com/dcpwsq8uv/thumbnails/transform/v1/image/upload/Y19sZmlsbCxoXzMwMCx3XzkwMA==/v1698337769/cGhvdG8tMTY5ODE5ODg1NTExOS00NzRlYzA0NjZmY2VfZnRyamx2/template_primary" class="d-block w-100" alt="A bar with lots of bottles">
+        <img src="{% static 'images/bar-with-bottles.png' %}">
       </div>
       <div class="carousel-item">
-        <img src="https://res-console.cloudinary.com/dcpwsq8uv/thumbnails/transform/v1/image/upload/Y19sZmlsbCxoXzMwMCx3XzkwMA==/v1698337899/cGhvdG8tMTY5Nzk5MjA2NTUxNi0yYmM3ZmM3YjllNDlfYWs5eXpw/template_primary" class="d-block w-100" alt="A close up of a tapas plate">
+        <img src="{% static 'images/tapas-plate.png' %}" class="d-block w-100" alt="A close up of a tapas plate">
       </div>
       <div class="carousel-item">
-        <img src="https://res-console.cloudinary.com/dcpwsq8uv/thumbnails/transform/v1/image/upload/Y19sZmlsbCxlX2JsdXI6NTgsaF8zMDAsd185MDA=/v1698323969/cGhvdG8tMTY3MjkwODcwODI0OS05ZGI4ZDEzNWNmMWNfeTBoY245/template_primary" class="d-block w-100" alt="A chef slicing a salami sausage">
+        <img src="{% static 'images/salami.png' %}" class="d-block w-100" alt="A chef slicing a salami sausage">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">

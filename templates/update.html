@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block content %}
 <div class="container-fluid">
@@ -41,12 +41,12 @@
  <div class="container-fluid">
     <div class="row">
         <div class="col md-8 offset-2 my-3">
-            <img src="https://res-console.cloudinary.com/dcpwsq8uv/thumbnails/transform/v1/image/upload/Y19zY2FsZSx3XzUwNw==/v1696586841/c2FtcGxlcy9icmVha2Zhc3Q=/template_primary" alt="A plate of salad with a poached egg">
-            <img src="https://res-console.cloudinary.com/dcpwsq8uv/thumbnails/transform/v1/image/upload/Y19zY2FsZSx3XzUzOA==/v1698322906/cGhvdG8tMTY5NTY4Mzk0ODk5Ny02OTU0N2FjNzYxNmNfZ3Vxb3hs/template_primary" alt="A selection of steaks">
+            <img src="{% static 'images/salad-plate.png' %}" alt="A plate of salad with a poached egg">
+            <img src="{% static 'images/steak.png' %}" alt="A selection of steaks">
            
         
         </div>
     </div>
  </div>
 
-{%endblock%}
+{% endblock %}
