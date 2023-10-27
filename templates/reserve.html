@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<!-- booking form -->
 <div class="container-fluid mt-5">
    <h2 class= "text-center my-5"> Book your table here</h2>
 </div>
@@ -10,31 +10,34 @@
         {% csrf_token %}
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required=True aria-label="Name">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" aria-label="Name" required >
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required=True aria-label="Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" aria-label="Email" required>
         </div>
 
         <div class="form-group">
             <label for="guests">Number of guests</label>
-            <input type="number" class="form-control" id="guests" name="guests" required=True aria-label="Number of guests">
+            <input type="number" class="form-control" id="guests" name="guests" aria-label="Number of guests" required>
         </div> 
 
         <div class="form-group">
             <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" name="date" required=True aria-label="date">
+            <input type="date" class="form-control" id="date" name="date" aria-label="date" required>
         </div>
 
         <div class="form-group">
-            <label for="time">Time</label>
-            <input type="time" class="form-control" id="time" name="time" required=True aria-label="time"> 
+            <label for="time">Book your time between 11:00 and  21:00</label>
+            <input type="time" min="11:00" max="21:00" class="form-control" id="time" name="time" aria-label="time" required> 
         </div>
+        
 
-        <button type="submit" class="btn btn-success" aria-label="Submit button">Submit</button>
+        <button type="submit" class="btn btn-success mt-2" aria-label="Submit button">Submit</button>
     </form>
 </div>
+
+
 
 {% endblock %}
