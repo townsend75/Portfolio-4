@@ -1,6 +1,7 @@
 # The Crown Jewels Booking System
 
 [View page deployed on heroku here](https://crown-jewels-5cd0c00fe74f.herokuapp.com/)
+
 [View my github repo here](https://github.com/townsend75/Portfolio-4)
 
 
@@ -21,9 +22,8 @@ The site is has a simple opening page including a navbar with links depending on
 
 - Better planning capabilities through advance knowledge of bookings on any particular day
 
-- 
+- Ability to see registered users and contact them ( possibly also for advertising purposes depending on permissions)
 
--
 
 ## User Stories
 

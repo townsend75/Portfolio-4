@@ -1,17 +1,7 @@
 from django.contrib import admin
-from .models import UserDetails, Reviews
+from .models import UserDetails
 from django_summernote.admin import SummernoteModelAdmin
-from .forms import BookingForm
 
-
-@admin.register(Reviews)
-class ReviewsAdmin(SummernoteModelAdmin):
-
-    search_fields = ('post', 'name', 'email', 'body')
-    summernote_fields = ("body")
-
-    def send_review(self, request, queryset):
-        queryset.update()
 
 @admin.register(UserDetails)
 class BookingAdmin(admin.ModelAdmin):
@@ -20,4 +10,3 @@ class BookingAdmin(admin.ModelAdmin):
 
     def confirm_booking(self, request, queryset):
         queryset.update(approved=True)
-    
