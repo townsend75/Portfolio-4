@@ -13,7 +13,7 @@ class UserDetails(models.Model):
     guests = models.IntegerField(default=0, help_text='Please enter the number of guests in your party')
     date = models.CharField(max_length=10, help_text='Please select a date using d-m-y')
     time = models.CharField(max_length=5, help_text="Please select a time")
-    customer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservations")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservations")
 
     class Meta:
         ordering = ["date"]

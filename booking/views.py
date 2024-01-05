@@ -2,14 +2,17 @@ from django.shortcuts import render, get_object_or_404, HttpResponse, redirect
 from django.views import generic, View
 from .models import UserDetails
 from django.views.generic.edit import CreateView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 # make a booking and send it to the model
 
-
+@login_required
 def reserve(request):
+
     if request.method == "POST":
 
         name = request.POST['name']
@@ -17,12 +20,13 @@ def reserve(request):
         guests = request.POST['guests']
         date = request.POST['date']
         time = request.POST['time']
-        customer = User.objects.get(id=request.user.id)
+        user = User.objects.get(id=request.user.id)
         booking = UserDetails(name=name, email=email, guests=guests, date=date,
-                              time=time, customer=customer
+                              time=time, user=user
                               )
         booking.save()
-        messages.success(request, 'Form submission successful')
+        messages.success(request, 'Thanks! Your booking was successful!')
+        
 
     return render(request, 'reserve.html')
 
@@ -33,27 +37,37 @@ def home(request):
 
 # view bookings made as logged in user
 class Reservation(View):
-
+   
     def get(self, request, *args, **kwargs):
-        queryset = UserDetails.objects.filter(customer__id=request.user.id)
-
+        queryset = UserDetails.objects.filter(user=request.user.id)
         return render(request, 'seebooking.html',
-                      {"reservations": queryset},
-                      )
+                {"reservations": queryset},
+                    )         
+                   
 
 
 # delete user booking
+
 def delete(request, id):
     booking = UserDetails.objects.get(id=id)
-    booking.delete()
-    messages.success(request, 'Your booking was deleted')
+    if not booking.user == request.user:
+        messages.warning(request, 'You do not have access to this page')
+        return redirect("/")
+    else:
+        booking.delete()
+        messages.success(request, 'Your booking was deleted')
     return redirect("/reservation")
 
 
 # open update form to manage booking
+
 def update(request, id):
-    booking = UserDetails.objects.get(id=id)
-    return render(request, "update.html", {'booking': booking})
+        booking = UserDetails.objects.get(id=id)
+        if not booking.user == request.user:
+            messages.warning(request, 'You do not have access to this page')
+            return redirect("/")
+        return render(request, "update.html", {'booking': booking})
+  
 
 
 # upload edited data to model
