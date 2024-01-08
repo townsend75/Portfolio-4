@@ -142,14 +142,79 @@ The footer is present on all pages and contains links to the standard social med
 
 For all testing, please refer to the [testing.md](testing.md) file.
 
+## Version Control
+
+The site was created using Gitpod and pushed to the GitHub repository "Portfolio-4"
+
+The following git commands were used throughout development to push code to the remote repo:
+
+`git add <file>` - This command was used to add the files to the staging area before they are committed
+
+`git commit -m "commit message` - This command was used to commit changes to the local repository queue ready for the final step
+
+`git push` - This command was used to push all committed code to the remote repository on GitHub
 
 ## Deployment
 
 The site was deployed to Heroku. The steps to deploy are as follows:
 
-- In the [GitHub Repository](https://github.com/townsend75/Portfolio-4), navigate to the Settings tab
-- From the source section drop-down menu, select the Main Branch, then click "Save".
-- The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+- Navigate to Heroku and create an account
+
+- Click the new button in the right hand corner
+
+- Select create new app
+
+- Enter app name
+
+- Select region and click create app
+
+- Click the settings tab, followed by reveal config vars
+
+- Add config vars to link postgres and cloudinary accounts, the port number and the secret key
+
+- Click the deploy tab and select "connect to GitHub"
+
+- Locate the repository you would like to connect to
+
+- Scroll down and click the manual deploy button
+
+### Run locally
+
+Navigate to the github repository
+
+- Click on the code dropdown button
+
+- Click on HTTP5
+
+- Copy the repository link to the clipboard
+
+- Open your IDE of choice (git must be installed for the next steps)
+
+- Type git clone copied-git-url into the IDE terminal
+
+The project will now have been cloned on your local machine for use
+
+Install Dependencies:
+
+`npm install`
+
+Run Application:
+
+`npm start`
+
+### Forking
+
+Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+- Navigate to the GitHub repository you wish to fork
+
+- On the top right of the page under the header click the fork button
+
+- This will create a duplicate of the full project in your GitHub repository
+
+
+
+
 
 ## Credits
 
@@ -173,6 +238,8 @@ Here is a list of resources that I have used to create my site.
 - Instructions relating to Github deployment come from Github's docs pages
 
 - Icons in the footer come from Font Awesome
+
+- Heroku deployment instructions were taken from the Heroku website
 
 
 ## Acknowledgements
