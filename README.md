@@ -5,9 +5,19 @@
 [View my github repo here](https://github.com/townsend75/Portfolio-4)
 
 
-## About the site
+## The Crown Jewels
 
-The site is has a simple opening page including a navbar with links depending on whether a user is logged in or not. If the user is logged in, they can book a table in the restaurant, view, edit and delete existing bookings and choose to log out. If the user is not yet registered, they can sign up and then use the features as well. There is also a brief description of the restaurant and links to the usual social media pages in the footer. The design is deliberately very simple, so as to focus on the functionality.. 
+The Crown Jewels is a booking page for a fictitious London pub. Users can register with the site and then book tables in the restaurant via a booking page. It is also possible for logged in users to view, update and delete any bookings they have made. 
+
+![Homepage Desktop](../Portfolio-4/static/images/Crown%20Jewels%20Homepage.png)
+![Homepage Tablet](../Portfolio-4/static/images/Crown%20Jewels%20Home%20Tablet.png)
+![Homepage Mobile](../Portfolio-4/static/images/Crown%20Jewels%20Home%20Mobile.png)
+
+
+The site is has a simple opening page including a navbar with links depending on whether a user is logged in or not. If the user is logged in, they can book a table in the restaurant, view, edit and delete existing bookings and choose to log out. If the user is not yet registered, they can sign up and then use the features as well. There is also a brief description of the restaurant, opening times and links to the usual social media pages in the footer. The design is deliberately very simple, so as to focus on the functionality.. 
+
+
+
 
 ## Website Goals
 
@@ -23,6 +33,11 @@ The site is has a simple opening page including a navbar with links depending on
 - Better planning capabilities through advance knowledge of bookings on any particular day
 
 - Ability to see registered users and contact them ( possibly also for advertising purposes depending on permissions)
+
+
+## Agile Planning
+
+This project was developed using agile methodologies. Since the scope of the project was not huge in terms of user stories, I decided against using epics and milestones, concentrating instead on user stories on a Kanban board. The Kanban board can be found [here](../Portfolio-4/static/images/Kanban%20board.png)
 
 
 ## User Stories
@@ -69,6 +84,12 @@ Roboto and Lato fonts are used throughout the site.
 
 
 ### Wireframes
+
+Wireframes of the homepage were sketched out for desktop, tablet and mobile
+
+![Wirefraome of desktop view](../Portfolio-4/static/images/Wireframe%20Crown%20Jewels%20Desktop.png)
+![Wireframe of tablet view](../Portfolio-4/static/images/Wireframe%20Crown%20Jewels%20Tablet.png)
+![Wireframe of mobile view](../Portfolio-4/static/images/Wireframe%20Crown%20Jewels%20Mobile.png)
 
 
 
@@ -124,7 +145,7 @@ For all testing, please refer to the [testing.md](testing.md) file.
 
 ## Deployment
 
-The site was deployed to GitHub Pages. The steps to deploy are as follows:
+The site was deployed to Heroku. The steps to deploy are as follows:
 
 - In the [GitHub Repository](https://github.com/townsend75/Portfolio-4), navigate to the Settings tab
 - From the source section drop-down menu, select the Main Branch, then click "Save".
@@ -143,6 +164,8 @@ Here is a list of resources that I have used to create my site.
 | [Unsplash](https://unsplash.com) | Entire site | Royalty free photo stock. The restaurant images are all taken from here |
 
 
+
+
 ## Content
 
 - The fonts used on this site are from Google Fonts
@@ -154,6 +177,10 @@ Here is a list of resources that I have used to create my site.
 
 ## Acknowledgements
 
-- I would like to thank my Code Institute mentor, Sheryl Goldberg for her valuable support
+- I would like to thank my mentor, Sheryl Goldberg for her invaluable help throughout this project. Countless tips and articles helped fill the gaps in my knowledge. 
 
-- I would also like to thank the Code Institute tutors who helped me sort out multiple issues
+- I would also like to thank the Code Institute tutors who helped me sort out multiple issues.
+
+## Bugs and fixes
+
+After initial submission, I was made aware of a security issue involving users being able to access and alter bookings not related to their own accounts by entering certain URLs. I resolved this issue by adding the @login_required decorator to the applicable views and also adding code making sure the user can only access booking made by themselves. If a user attempts to access a URl related to another booking, they are now redirected to the hompage and receive a message informing them that they do not have permission to view the requested page. 
